@@ -1,0 +1,14 @@
+.navbar {
+  background-color: black;
+}
+
+.navbar-brand {
+  color: aliceblue;
+}
+
+form {
+  display: block;
+  margin: auto;
+  width: 50%;
+  margin-top: 5%;
+}
