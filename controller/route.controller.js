@@ -1,6 +1,15 @@
-const express = require('express')
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 const axios = require('axios');
 const Dictionary = require('../models/DictionaryModel');
+
+app.get('/', (req, res) => {
+    return res.sendFile(path.join(__dirname, 'publics', 'index01.html'));
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const getPath = async (req, res) => {
     const word = req.query.word;
@@ -57,27 +66,36 @@ const getSpecificWord = async (req, res) => {
     }
 }
 
+
 const postWord = async (req, res) => {
-    const word = req.query.word;
-    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
-    axios
-        .get(url)
-        .then(response => {
-            const entries = response.data;
+    try {
+    
+        const word = req.query.word;
+        const url = `https://api.dictionaryapi.dev/api/v2/entries/en?word=${encodeURIComponent(word)}`;
+        axios
+            .get(url)
+            .then(response => {
+                const entries = response.data;
 
-            for (let i = 0; i < entries.length; i++) {
-                const entry = entries[i];
-                const word = entry.word;
-                const meanings = entry.meanings;
+                for (let i = 0; i < entries.length; i++) {
+                    const entry = entries[i];
+                    const wordi = entry.word;
+                    const meanings = entry.meanings;
 
-                const newPost = new Dictionary({
-                    word: word,
-                    meanings: meanings,
+                    const newPost = new Dictionary({
+                        word: wordi,
+                        meanings: meanings,
 
-                });
-                newPost.save()
-            }
-        })
+                    });
+                    newPost.save()
+                }
+            })
+
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+
+    }
+
 }
 
 const updateWord = async (req, res) => {

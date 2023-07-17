@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const word = urlParams.get("word");
-const enteredWordElement = document.getElementById("Word");
+const enteredWordElement = document.getElementById("words");
 enteredWordElement.textContent = word;
 
 let currentUrl = `http://localhost:3000/searchword?word=${encodeURIComponent(word)}`;
