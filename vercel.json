@@ -2,18 +2,29 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js",
+      "src": "public/*.html",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    },
+    {
+      "src": "route.js",
       "use": "@vercel/node"
     },
     {
-      "src": "public/**/*",
-      "use": "@vercel/static"
+      "src": "route.controller.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "index.js"
+      "dest": "Dictionary/$1"
     },
     {
       "src": "/(.*)",
@@ -22,8 +33,5 @@
         "Cache-Control": "s-maxage=1, stale-while-revalidate"
       }
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
