@@ -2,18 +2,19 @@
   "version": 2,
   "builds": [
     {
-      "src": "public/*.html",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "public"
-      }
-    },
-    {
       "src": "server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/api/.*",
+      "dest": "server.js"
+    },
     {
       "src": "/(.*)",
       "dest": "public/$1",
@@ -21,5 +22,8 @@
         "Cache-Control": "s-maxage=1, stale-while-revalidate"
       }
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
