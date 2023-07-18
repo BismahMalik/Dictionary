@@ -1,5 +1,10 @@
 const express = require('express')
-const app = express()
+const cors = require('cors');
+
+const app = express();
+
+// Middleware to enable CORS
+app.use(cors());
 const axios = require('axios');
 const Dictionary = require('./models/DictionaryModel')
 const path = require('path')
