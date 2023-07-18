@@ -70,7 +70,7 @@ const word = urlParams.get("word");
 const enteredWordElement = document.getElementById("words");
 enteredWordElement.textContent = word;
 
-let currentUrl = `${window.location.origin}/api/users?word=${encodeURIComponent(word)}`;
+let currentUrl = `${window.location.origin}/searchword?word=${encodeURIComponent(word)}`;
 let currentRequest = fetch(currentUrl);
 let fallBackUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
 let fallBackRequest = fetch(fallBackUrl);
