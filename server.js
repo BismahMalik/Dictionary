@@ -1,5 +1,5 @@
 const express = require('express')
-const routes = require('./routes/route')
+const routes = require('./route')
 const app = express()
 const axios = require('axios');
 const Dictionary = require('./models/DictionaryModel')
@@ -16,11 +16,11 @@ mongoose.connect(uri, {
 app.use('/', routes);
 
 app.get('/', (req, res) => {
-  return res.sendFile(path.join(__dirname, 'publics', 'index01.html'));
+  return res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.use(express.static(path.join(__dirname, 'publics'), {
-  extensions: ['html', 'css', 'js'] // Add 'css' to the list of allowed extensions
+app.use(express.static(path.join(__dirname, 'public'), {
+  extensions: ['html', 'css', 'js'] // Add 'css' and 'js' to the list of allowed extensions
 }));
 
 app.use(express.json())
