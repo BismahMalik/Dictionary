@@ -1,27 +1,20 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
-    },
+    
     {
       "src": "public/**/*",
       "use": "@vercel/static"
+    },
+    {
+      "src": "api/server.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "src": "/api/.*",
-      "dest": "server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "public/$1",
-      "headers": {
-        "Cache-Control": "s-maxage=1, stale-while-revalidate"
-      }
-    }
+    { "src": "/api/(.*)", "dest": "api/serverless.js" },
+    { "src": "/(.*)", "dest": "public/$1" }
+   
   ],
   "env": {
     "NODE_ENV": "production"

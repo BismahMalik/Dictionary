@@ -1,10 +1,76 @@
 
+// const urlParams = new URLSearchParams(window.location.search);
+// const word = urlParams.get("word");
+// const enteredWordElement = document.getElementById("words");
+// enteredWordElement.textContent = word;
+
+// let currentUrl = `http://localhost:3000/api/users?word=${encodeURIComponent(word)}`;
+// let currentRequest = fetch(currentUrl);
+// let fallBackUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
+// let fallBackRequest = fetch(fallBackUrl);
+
+// currentRequest
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+
+//     if (data.length > 0) {
+//       let meaningsHtml = data[0].meanings
+//         .slice(0, 2) // Extract the first two meanings
+//         .map((meaning) => `<li>${meaning.definitions[0].definition}</li>`)
+//         .join("");
+
+//       let htmlstr = `
+//                 Word: ${data[0].word.toUpperCase()}
+//                 <br>Meanings:
+//                 <br>
+//                 <ul>
+//                     ${meaningsHtml}
+//                 </ul>`;
+
+//       result.innerHTML = htmlstr;
+//     } else {
+//       fallBackRequest
+//         .then((response) => {
+//           return response.json();
+//         })
+//         .then((data) => {
+//           if (data.length > 0) {
+//             let meaningsHtml = data[0].meanings
+//               .slice(0, 2) // Extract the first two meanings
+//               .map((meaning) => `<li>${meaning.definitions[0].definition}</li>`)
+//               .join("");
+
+//             let htmlstr = `
+//                             Word: ${data[0].word.toUpperCase()}
+//                             <br>Meanings:
+//                             <br>
+//                             <ul>
+//                                 ${meaningsHtml}
+//                             </ul>`;
+
+//             result.innerHTML = htmlstr;
+//           } else {
+//             result.innerHTML = "Meanings not found.";
+//           }
+//         })
+//         .catch((error) => {
+//           result.innerHTML = "Word Not Found";
+//         });
+//     }
+//   })
+//   .catch((error) => {
+//     result.innerHTML = "Word Not Found";
+//   });
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const word = urlParams.get("word");
 const enteredWordElement = document.getElementById("words");
 enteredWordElement.textContent = word;
 
-let currentUrl = `http://localhost:3000/api/users?word=${encodeURIComponent(word)}`;
+let currentUrl = `${window.location.origin}/api/users?word=${encodeURIComponent(word)}`;
 let currentRequest = fetch(currentUrl);
 let fallBackUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
 let fallBackRequest = fetch(fallBackUrl);
@@ -14,20 +80,19 @@ currentRequest
     return response.json();
   })
   .then((data) => {
-
     if (data.length > 0) {
       let meaningsHtml = data[0].meanings
-        .slice(0, 2) // Extract the first two meanings
+        .slice(0, 2)
         .map((meaning) => `<li>${meaning.definitions[0].definition}</li>`)
         .join("");
 
       let htmlstr = `
-                Word: ${data[0].word.toUpperCase()}
-                <br>Meanings:
-                <br>
-                <ul>
-                    ${meaningsHtml}
-                </ul>`;
+        Word: ${data[0].word.toUpperCase()}
+        <br>Meanings:
+        <br>
+        <ul>
+          ${meaningsHtml}
+        </ul>`;
 
       result.innerHTML = htmlstr;
     } else {
@@ -38,17 +103,17 @@ currentRequest
         .then((data) => {
           if (data.length > 0) {
             let meaningsHtml = data[0].meanings
-              .slice(0, 2) // Extract the first two meanings
+              .slice(0, 2)
               .map((meaning) => `<li>${meaning.definitions[0].definition}</li>`)
               .join("");
 
             let htmlstr = `
-                            Word: ${data[0].word.toUpperCase()}
-                            <br>Meanings:
-                            <br>
-                            <ul>
-                                ${meaningsHtml}
-                            </ul>`;
+              Word: ${data[0].word.toUpperCase()}
+              <br>Meanings:
+              <br>
+              <ul>
+                ${meaningsHtml}
+              </ul>`;
 
             result.innerHTML = htmlstr;
           } else {
@@ -63,5 +128,3 @@ currentRequest
   .catch((error) => {
     result.innerHTML = "Word Not Found";
   });
-
-
