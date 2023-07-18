@@ -18,7 +18,7 @@ currentRequest
     if (data.length > 0) {
       let meaningsHtml = data[0].meanings
         .slice(0, 2) // Extract the first two meanings
-        .map((meaning) => `<li>${meaning.definitions[0].definition}</li><br>`)
+        .map((meaning) => `<li>${meaning.definitions[0].definition}</li>`)
         .join("");
 
       let htmlstr = `
@@ -39,7 +39,7 @@ currentRequest
           if (data.length > 0) {
             let meaningsHtml = data[0].meanings
               .slice(0, 2) // Extract the first two meanings
-              .map((meaning) => `<li>${meaning.definitions[0].definition}</li><br>`)
+              .map((meaning) => `<li>${meaning.definitions[0].definition}</li>`)
               .join("");
 
             let htmlstr = `
