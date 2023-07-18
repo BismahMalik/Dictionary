@@ -9,15 +9,11 @@
       }
     },
     {
-      "src": "index.js",
+      "src": "server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "src": "/api/users",
-      "dest": "http://localhost:3000/api/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "public/$1",
