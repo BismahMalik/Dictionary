@@ -9,14 +9,6 @@
       }
     },
     {
-      "src": "route.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "route.controller.js",
-      "use": "@vercel/node"
-    },
-    {
       "src": "index.js",
       "use": "@vercel/node"
     }
