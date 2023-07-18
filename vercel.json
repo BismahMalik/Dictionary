@@ -24,7 +24,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "Dictionary/$1"
+      "dest": "searchword/$1"
     },
     {
       "src": "/(.*)",
