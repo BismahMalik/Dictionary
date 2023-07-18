@@ -22,7 +22,7 @@ mongoose.connect('mongodb+srv://211354:Rx1yppNoqR7ljL2S@cluster0.3wcc5i2.mongodb
     console.log(error)
   })
 
-app.get('/searchword', (req, res) => {
+app.get('/api/users', (req, res) => {
   const word = req.query.word;
 
   const currentUrl = `http://localhost:3000/Dictionarys/${encodeURIComponent(word)}`;
@@ -96,7 +96,7 @@ app.post('/Dictionary', async (req, res) => {
   try {
     
     const word = req.query.word;
-    const url = `http://localhost:3000/searchword?word=${encodeURIComponent(word)}`;
+    const url = `http://localhost:3000/api/users?word=${encodeURIComponent(word)}`;
     axios
         .get(url)
         .then(response => {
