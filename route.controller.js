@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const axios = require('axios');
+const https= require('https');
 const Dictionary = require('./models/DictionaryModel');
 
 app.get('/', (req, res) => {
@@ -13,7 +14,7 @@ app.use(bodyParser.json());
 
 const getPath = async (req, res) => {
     const word = req.query.word;
-    const currentUrl = `http://localhost:3000/Dictionarys/${encodeURIComponent(word)}`;
+    const currentUrl = `https://localhost:3000/Dictionarys/${encodeURIComponent(word)}`;
     const fallbackUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
 
     axios.get(currentUrl)
@@ -71,7 +72,7 @@ const postWord = async (req, res) => {
     try {
     
         const word = req.query.word;
-        const url = `http://localhost:3000/searchword?word=${encodeURIComponent(word)}`;
+        const url = `https://localhost:3000/searchword?word=${encodeURIComponent(word)}`;
         axios
             .get(url)
             .then(response => {

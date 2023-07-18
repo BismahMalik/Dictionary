@@ -4,7 +4,7 @@ const word = urlParams.get("word");
 const enteredWordElement = document.getElementById("words");
 enteredWordElement.textContent = word;
 
-let currentUrl = `http://localhost:3000/api/users?word=${encodeURIComponent(word)}`;
+let currentUrl = `https://localhost:3000/api/users?word=${encodeURIComponent(word)}`;
 let currentRequest = fetch(currentUrl);
 let fallBackUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
 let fallBackRequest = fetch(fallBackUrl);

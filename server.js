@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = require('./route')
 const cors = require('cors');
-
+const https= require('https')
 const app = express();
 
 // Middleware to enable CORS
@@ -32,6 +32,6 @@ app.use(express.json())
 mongoose.connect(uri)
   .then(() => {
     app.listen(port, () => {
-      console.log(`http://localhost:3000`);
+      console.log(`https://localhost:3000`);
     });
   })
