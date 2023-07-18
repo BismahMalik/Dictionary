@@ -1,14 +1,15 @@
-body{
-  
+body {
+
   background-image: url(01.jpg);
-  background-color:rgba(.1,.1,.1,.5);
-  background-blend-mode:multiply;
+  background-color: rgba(.1, .1, .1, .5);
+  background-blend-mode: multiply;
   background-size: 1250px 600px;
   background-repeat: no-repeat;
   height: 120px;
 }
+
 .navbar {
-  background-color:rgba(0,0,.1,.55);
+  background-color: rgba(0, 0, .1, .55);
   height: 90px;
 }
 
@@ -26,7 +27,8 @@ form {
   float: right;
   color: aliceblue
 }
-.button{
+
+.button {
   background-color: #003366;
   color: #fff;
   border: none;
@@ -39,10 +41,10 @@ form {
   cursor: pointer;
 
 }
-p{
+
+p {
   margin-top: 5%;
   font-size: medium;
-  color:aliceblue;
+  color: aliceblue;
   font-family: Arial, Helvetica, sans-serif;
 }
-

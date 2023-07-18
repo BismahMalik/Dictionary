@@ -1,7 +1,7 @@
 const express = require('express')
 const routes = require('./route')
 const cors = require('cors');
-const https= require('https')
+const https = require('https')
 const app = express();
 
 // Middleware to enable CORS
