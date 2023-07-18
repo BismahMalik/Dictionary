@@ -32,6 +32,6 @@ app.use(express.json())
 mongoose.connect(uri)
   .then(() => {
     app.listen(port, () => {
-      console.log(`https://localhost:3000`);
+      console.log(`http://localhost:3000`);
     });
   })
