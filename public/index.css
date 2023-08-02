@@ -54,7 +54,7 @@ p {
     background-image: url(01.jpg);
     background-color: rgba(.1, .1, .1, .5);
     background-blend-mode: multiply;
-    background-size: 1000px 900px;
+    background-size: 1000px 1000px;
     background-repeat: no-repeat;
     height: 9500px;
   }
@@ -73,7 +73,7 @@ p {
     display: block;
     margin: auto;
     width: 60%;
-    margin-top: 40%;
+    margin-top: 60%;
     margin-right: 20%;
     margin-left: 5%;
     text-align: justify;
