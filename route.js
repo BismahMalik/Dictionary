@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const DictionaryController = require('./route.controller');
+router.get('/searchword', DictionaryController.getPath);
+router.get('/fallbackURL', DictionaryController.getFallBackUrl);
+router.get('/Dictionarys', DictionaryController.getAllWords);
+router.get('/Dictionarys/:word', DictionaryController.getSpecificWord);
+router.post('/', DictionaryController.postWord);
+router.put('/Dictionarys/:word', DictionaryController.updateWord);
+router.delete('/Dictionarys/:word', DictionaryController.deleteWord);
+module.exports = router;

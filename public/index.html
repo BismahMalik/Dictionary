@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <title>Dictionary</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">
+      <h4>Learner's Dictionary</h4>
+    </a>
+  </nav>
+  <form class="form" action="/" method="post">
+    <div class="div1">
+      <input type="text" placeholder="Search Word" class="form-control" id="words" name="word" resctricted>
+      <br>
+      <button id="submitButton" type="submit" class="button">Submit</button>
+    </div>
+    <div clas="div2">
+      <h2 class="text-center"></h2>
+      <p id="result"></p>
+    </div>
+  </form>
+  <script type="text/javascript" src="index.js">
+  </script>
+</body>
+
+</html>
