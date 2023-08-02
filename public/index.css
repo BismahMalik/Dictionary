@@ -78,7 +78,8 @@ p {
     margin-left: 5%;
     text-align: justify;
     float: right;
-    color: aliceblue
+    color: aliceblue;
+    font-size: 18px;
   }
 
   .button {
