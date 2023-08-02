@@ -1,6 +1,7 @@
 # Learner-s-Dictionary
 
 Learner's Dictionary is a simple web application that allows users to get meanings for a specific word. 
+
 **Getting Started**
 
 To run the App locally, follow these steps:
