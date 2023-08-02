@@ -2,9 +2,9 @@ body {
   background-image: url(01.jpg);
   background-color: rgba(.1, .1, .1, .5);
   background-blend-mode: multiply;
-  background-size: 1250px 600px;
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 120px;
+  height: 600px;
 }
 
 .navbar {
@@ -54,9 +54,9 @@ p {
     background-image: url(01.jpg);
     background-color: rgba(.1, .1, .1, .5);
     background-blend-mode: multiply;
-    background-size: 1000px 1000px;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 9500px;
+    height: 950px;
   }
 
   .navbar {
