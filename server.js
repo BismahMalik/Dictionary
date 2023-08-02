@@ -1,19 +1,14 @@
+require('dotenv').config();
 const express = require('express')
 const routes = require('./route')
-const cors = require('cors');
 const https = require('https')
 const app = express();
-
-// Middleware to enable CORS
-app.use(cors());
 const axios = require('axios');
 const Dictionary = require('./models/DictionaryModel')
 const path = require('path')
-const port = 3000
+const port = 3000;
 const mongoose = require("mongoose")
-const uri = "mongodb+srv://211354:Rx1yppNoqR7ljL2S@cluster0.3wcc5i2.mongodb.net/FetchedDictionary?retryWrites=true&w=majority"
-
-mongoose.connect(uri, {
+mongoose.connect(process.env.MONGODB_URL, {
   serverSelectionTimeoutMS: 30000,
   socketTimeoutMS: 30000,
 });
@@ -29,7 +24,7 @@ app.use(express.static(path.join(__dirname, '/public'), {
 }));
 
 app.use(express.json())
-mongoose.connect(uri)
+mongoose.connect(process.env.MONGODB_URL)
   .then(() => {
     app.listen(port, () => {
       console.log(`http://localhost:3000`);
